@@ -1,0 +1,121 @@
+$main:rgb(40, 8, 79);
+$second:rgb(75, 43, 255);
+.navbar{
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(111, 12, 113, 0.108);
+    position: fixed;
+    // background-color: #F6762C;
+    z-index: 999;
+    .icon
+    {
+        color: white;
+        font-size: 30px;
+        font-weight: bolder;
+        background-image: linear-gradient(to right, $main, $second);
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 48% 52% 49% 51% / 53% 0% 100% 47%;
+        height: 40px;
+    }
+    .menu,
+    .close
+    {
+     color: $main;;
+    cursor: pointer;
+    }
+    ul{
+        margin-left: auto;
+        li{
+            .active 
+            {
+                background-image: linear-gradient(to right, $main, $second);
+                -webkit-background-clip: text; /* For Safari */
+                background-clip: text;
+                color: transparent; 
+                font-weight: bolder;
+            }
+            a 
+            {
+            margin:0 10px;
+            padding: 2px 4px;
+            // border-radius: 5px;
+            cursor: pointer;
+            color: rgb(185, 185, 185);
+            text-decoration: none;
+            }
+        }
+    }
+    .carterth{
+        span
+        {
+            background-color: #F6762C;
+            padding: 10px 20px;
+            text-align: center;
+            width: 165px;
+            height: 49px;
+            border-radius: 5px;
+            color: white;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 500px;
+            cursor: pointer;
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .link{
+            position: fixed;
+            background: transparent;
+            backdrop-filter: blur(50px);
+            padding: 15px 0;
+            // height: 100%;
+            width: 250px;
+            top: 0px;
+            left: -252px;
+            // transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: .3s;
+            border-bottom-right-radius: 10px;
+            box-shadow: 0px 0px 5px $main;
+        }
+        .toggle{
+            left: 0px;
+        }
+        ul{
+            text-align: center;
+            width: 100%;
+        }
+        ul li 
+        {
+            margin: 10px 0;
+        }
+    }
+    
+
+    @media screen and (min-width: 751px) {
+        .navbar
+        {
+            display: flex;
+        }
+        .link{
+            position:static;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 80%;
+        }
+        .menu, .close{
+            display: none;
+        }
+        ul{
+            display: flex;
+        }
+        ul li 
+        {
+            margin-top: 10px;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+footer {
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(12, 14, 113, 0.203);
+}
+footer ul li {
+  margin: 0 5px;
+  font-size: 30px;
+}
+footer ul li a {
+  color: rgb(40, 8, 79);
+}/*# sourceMappingURL=footer.css.map */

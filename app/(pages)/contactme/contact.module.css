@@ -1,0 +1,68 @@
+.cover
+{
+    background-image:linear-gradient(rgba(40, 8, 79, 0.119), rgba(75, 43, 255, 0.366)), url(../../imges/dots.png);
+    background-attachment: fixed;
+    background-repeat:repeat;
+}
+.main
+{
+    margin-top: 50px;
+    /* background-color: transparent;
+    backdrop-filter: blur(5px); */
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 20px 0;
+    
+}
+.contact_Header
+{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: whitesmoke;
+}
+.form_inputs
+{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0px 0px 10px rgb(40, 8, 79);
+    outline: none;
+    background-color: rgb(40, 8, 79);
+    color: wheat;
+}
+.form_inputs::placeholder
+{
+    color: white;
+    letter-spacing: 2px;
+}
+.topOfInput
+{
+    color: lightcyan;
+    padding: 0;
+    text-align: left;
+    position: absolute;
+    overflow: hidden;
+    top: -26px;
+    left: 0;
+    z-index: -1;
+    transition: .5s;
+}
+.changeTop
+{
+    top: 2px;
+    transition: .5s;
+}
+.button
+{
+    background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255)) ;
+    border: 2px solid rgb(40, 8, 79);
+    border-radius: 5px;
+    color: white;
+    padding: 2px 8px;
+}

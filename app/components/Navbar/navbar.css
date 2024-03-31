@@ -1,0 +1,102 @@
+.navbar {
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(111, 12, 113, 0.108);
+  position: fixed;
+  z-index: 999;
+}
+.navbar .icon {
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255));
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 48% 52% 49% 51%/53% 0% 100% 47%;
+  height: 40px;
+}
+.navbar .menu,
+.navbar .close {
+  color: rgb(40, 8, 79);
+  cursor: pointer;
+}
+.navbar ul {
+  margin-left: auto;
+}
+.navbar ul li .active {
+  background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255));
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent;
+  font-weight: bolder;
+}
+.navbar ul li a {
+  margin: 0 10px;
+  padding: 2px 4px;
+  cursor: pointer;
+  color: rgb(185, 185, 185);
+  text-decoration: none;
+}
+.navbar .carterth span {
+  background-color: #F6762C;
+  padding: 10px 20px;
+  text-align: center;
+  width: 165px;
+  height: 49px;
+  border-radius: 5px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500px;
+  cursor: pointer;
+}
+@media screen and (max-width: 750px) {
+  .navbar .link {
+    position: fixed;
+    background: transparent;
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+    padding: 15px 0;
+    width: 250px;
+    top: 0px;
+    left: -252px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(40, 8, 79);
+  }
+  .navbar .toggle {
+    left: 0px;
+  }
+  .navbar ul {
+    text-align: center;
+    width: 100%;
+  }
+  .navbar ul li {
+    margin: 10px 0;
+  }
+}
+@media screen and (min-width: 751px) {
+  .navbar .navbar {
+    display: flex;
+  }
+  .navbar .link {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+  }
+  .navbar .menu, .navbar .close {
+    display: none;
+  }
+  .navbar ul {
+    display: flex;
+  }
+  .navbar ul li {
+    margin-top: 10px;
+  }
+}/*# sourceMappingURL=navbar.css.map */
