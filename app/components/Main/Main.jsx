@@ -36,7 +36,7 @@ export default function Main() {
        <div className='col-lg-8 col-md-6 d-flex flex-column  justify-content-center'>
           <h4 className=' fw-bolder myName'>Hello!!!!</h4>
           <div className='myName'>
-          <span>I'm </span>
+          <span>I&apos;m </span>
           <span ref={el} />
           </div>
           <ul className=' list-unstyled d-flex'>
