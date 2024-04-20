@@ -38,12 +38,12 @@ export default function Main() {
           <span ref={el} />
           </div>
           <ul className=' list-unstyled d-flex'>
-            <li><a href='https://www.facebook.com/profile.php?id=100079659855523'><FaFacebookSquare/></a></li>
-            <li><a href='https://www.linkedin.com/in/diaa-abdulaziz-232530201'><FaLinkedin/></a></li>
-            <li><a href='https://github.com/Diaa-Abdelaziz'><FaGithubSquare/></a></li>
-            <li><a href="https://wa.me/201117578674" rel="noopener noreferrer"><FaWhatsappSquare/></a></li>
+            <li><a href='https://www.facebook.com/profile.php?id=100079659855523' aria-label="go to my account on facebook"><FaFacebookSquare/></a></li>
+            <li><a href='https://www.linkedin.com/in/diaa-abdulaziz-232530201' aria-label="go to my account on linked in"><FaLinkedin/></a></li>
+            <li><a href='https://github.com/Diaa-Abdelaziz'aria-label="go to my account on github"><FaGithubSquare/></a></li>
+            <li><a href="https://wa.me/201117578674" rel="noopener noreferrer" aria-label="send message by whatsapp"><FaWhatsappSquare/></a></li>
           </ul>
-          <Link href="" className="badge text-decoration-none fs-5 download_cv">Download cv <IoMdCloudDownload/></Link>
+          <Link href="" className="badge text-decoration-none fs-5 download_cv" aria-label="download my cv">Download cv <IoMdCloudDownload/></Link>
        </div>
        <div className='col-lg-4 col-md-6 d-flex flex-column justify-content-center'>
        <Image priority width={300} height={400} src={picture} className='picture w-auto h-auto' alt={picture}/>
