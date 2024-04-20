@@ -17,3 +17,20 @@
 {
     right: 10px; 
 }
+.notFound
+{
+   p{
+    color: white;
+    letter-spacing: 10px;
+    font-weight: bold;
+   }
+   a 
+   {
+    text-decoration: none;
+    background-color: white;
+    color: rgb(40, 8, 79);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+   }
+}
