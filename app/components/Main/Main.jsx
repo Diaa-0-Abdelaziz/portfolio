@@ -9,8 +9,6 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaGithubSquare } from "react-icons/fa";
 import { IoMdCloudDownload } from "react-icons/io";
 import { FaWhatsappSquare } from "react-icons/fa";
-
-import { Link as ScrollLink } from 'react-scroll';
 import Link from 'next/link';
 
 export default function Main() {
@@ -30,9 +28,9 @@ export default function Main() {
     };
   }, []);
   return (
-    <div className=' home vh-100 d-flex  align-items-center'>
+    <div className=' home vh-100  d-flex  align-items-top'>
       <div className='container'>
-     <div className='row w-100'>
+     <div className='row mt-4 w-100'>
        <div className='col-lg-8 col-md-6 d-flex flex-column  justify-content-center'>
           <h4 className=' fw-bolder myName'>Hello!!!!</h4>
           <div className='myName'>
@@ -52,7 +50,6 @@ export default function Main() {
        </div>
      </div>
       </div>
-     <ScrollLink activeClass="active" to="objective" spy={true} smooth={true} offset={-58} duration={500} className="down position-absolute rounded-pill bottom-0 start-50 translate-middle-x mb-3"></ScrollLink>
     </div>
   )
 }

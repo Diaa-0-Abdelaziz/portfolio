@@ -35,7 +35,7 @@ export default function Navbar() {
    ]
   return (
     <>
-    <div className="navbar fixed-top py-1 px-5">
+    <div className="navbar py-1 px-5">
    <div className='icon'>
    D
    </div>
