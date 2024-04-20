@@ -1,0 +1,19 @@
+//******scroll-to-top-button*******
+
+.scroll-to-top-button
+{
+    position: fixed;
+    bottom: 0;
+    right: -50px;
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 999999;
+    font-size: 40px;
+    color: rgb(40, 8, 79);
+    cursor: pointer;
+}
+
+.show
+{
+    right: 10px; 
+}
