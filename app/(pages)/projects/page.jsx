@@ -18,7 +18,7 @@ export default function projects() {
             img:project9,
             title:"Tajeer",
             tecnoUsed:"Html, Css, js, Bootstrap, responsive, React,formik and yup for validation",
-            live:"https://tageer.vercel.app/",
+            live:"https://tajeer-v376.vercel.app/",
             code:"https://github.com/Diaa-0-Abdelaziz/tageer",
             role:"web app"
         },
