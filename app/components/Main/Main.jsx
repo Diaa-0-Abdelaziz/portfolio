@@ -43,7 +43,7 @@ export default function Main() {
             <li><a href='https://github.com/Diaa-Abdelaziz'aria-label="go to my account on github"><FaGithubSquare/></a></li>
             <li><a href="https://wa.me/201117578674" rel="noopener noreferrer" aria-label="send message by whatsapp"><FaWhatsappSquare/></a></li>
           </ul>
-          <Link href="https://drive.google.com/file/d/1xCr7gaP0K9Qyhg9goL7f_MAqlpRpv1U8/view?usp=sharing" target='_blank' className="badge text-decoration-none fs-5 download_cv" aria-label="download my cv">Download cv <IoMdCloudDownload/></Link>
+          <Link href="https://drive.google.com/drive/folders/1P8ISYv-XkffPKPnjhIMtwwzs3qkmc6ao?usp=sharing" target='_blank' className="badge text-decoration-none fs-5 download_cv" aria-label="download my cv">Download cv <IoMdCloudDownload/></Link>
        </div>
        <div className='col-lg-4 col-md-6 d-flex flex-column justify-content-center'>
        <Image priority width={300} height={400} src={picture} className='picture w-auto h-auto' alt={picture}/>
