@@ -40,7 +40,7 @@ export default function Main() {
           <ul className=' list-unstyled d-flex'>
             <li><a href='https://www.facebook.com/profile.php?id=100079659855523' aria-label="go to my account on facebook"><FaFacebookSquare/></a></li>
             <li><a href='https://www.linkedin.com/in/diaa-abdulaziz-232530201' aria-label="go to my account on linked in"><FaLinkedin/></a></li>
-            <li><a href='https://github.com/Diaa-Abdelaziz'aria-label="go to my account on github"><FaGithubSquare/></a></li>
+            <li><a href='https://github.com/Diaa-0-Abdelaziz'aria-label="go to my account on github"><FaGithubSquare/></a></li>
             <li><a href="https://wa.me/201117578674" rel="noopener noreferrer" aria-label="send message by whatsapp"><FaWhatsappSquare/></a></li>
           </ul>
           <Link href="https://drive.google.com/drive/folders/1P8ISYv-XkffPKPnjhIMtwwzs3qkmc6ao?usp=sharing" target='_blank' className="badge text-decoration-none fs-5 download_cv" aria-label="download my cv">Download cv <IoMdCloudDownload/></Link>
