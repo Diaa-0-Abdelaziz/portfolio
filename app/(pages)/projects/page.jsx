@@ -9,19 +9,10 @@ import project5 from '../../imges/project5.jpg';
 import project6 from '../../imges/project6.jpg';
 import project7 from '../../imges/project7.jpg';
 import project8 from '../../imges/project8.jpg';
-import project9 from '../../imges/project9.jpg';
 import"./projects.css"
 import Link from 'next/link';
 export default function projects() {
     let progects = [
-        {
-            img:project9,
-            title:"Tajeer",
-            tecnoUsed:"Html, Css, js, Bootstrap, responsive, React,formik and yup for validation",
-            live:"https://tajeer-v376.vercel.app/",
-            code:"https://github.com/Diaa-0-Abdelaziz/tageer",
-            role:"web app"
-        },
         {
             img:project1,
             title:"fresh cart",
