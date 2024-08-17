@@ -10,13 +10,21 @@ import project6 from '../../imges/project6.jpg';
 import project7 from '../../imges/project7.jpg';
 import project8 from '../../imges/project8.jpg';
 import project9 from '../../imges/project9.jpg';
+import project10 from '../../imges/project10.png';
 import"./projects.css"
 import Link from 'next/link';
 export default function projects() {
     let progects = [
+        {img:project10,
+        title:"Ask Experts",
+        tecnoUsed:"Html, Css, js, Tailwind, responsive, React,formik and yup for validation and Animation.",
+        live:"https://ask-experts-ruby.vercel.app/",
+        code:"https://github.com/Diaa-0-Abdelaziz/Ask_Experts",
+        role:"website"
+    },
         {img:project9,
         title:"Tajeer",
-        tecnoUsed:"Html, Css, js, Bootstrap, responsive, React,formik and yup for validation",
+        tecnoUsed:"Html, Css, js, Bootstrap, responsive, React,formik and yup for validation.",
         live:"https://tajeer-v376.vercel.app/",
         code:"https://github.com/Diaa-0-Abdelaziz/tageer",
         role:"web app"
@@ -24,7 +32,7 @@ export default function projects() {
         {
             img:project1,
             title:"fresh cart",
-            tecnoUsed:"Html, Css, js, Bootstrap, responsive, React, api",
+            tecnoUsed:"Html, Css, js, Bootstrap, responsive, React and api.",
             live:"https://ecommerce-cq61q9log-diaa-abdelazizs-projects.vercel.app/",
             code:"https://github.com/Diaa-0-Abdelaziz/Ecommerce",
             role:"E-Commerce app"
@@ -32,7 +40,7 @@ export default function projects() {
         {
             img:project2,
             title:"Fast-Food",
-            tecnoUsed:"Html, Css, js, Bootstrap, Next.js, api, animation, responsive",
+            tecnoUsed:"Html, Css, js, Bootstrap, Next.js, api, animation and responsive.",
             live:"https://fast-food-eosin-gamma.vercel.app/",
             code:"https://github.com/Diaa-0-Abdelaziz/FastFood",
             role:"web app"
@@ -40,7 +48,7 @@ export default function projects() {
         {
             img:project3,
             title:"Fernature",
-            tecnoUsed:"Html5, Css3, js, Bootstrap, React, animation, responsive",
+            tecnoUsed:"Html5, Css3, js, Bootstrap, React, animation and responsive.",
             live:"https://fernature-six.vercel.app/",
             code:"https://github.com/Diaa-0-Abdelaziz/fernature",
             role:"landing page"
@@ -48,7 +56,7 @@ export default function projects() {
         {
             img:project4,
             title:"CRUD System",
-            tecnoUsed:"Html5, Css3, js, Bootstrap, animation, Regux",
+            tecnoUsed:"Html5, Css3, js, Bootstrap, animation and Regux.",
             live:"https://diaa-0-abdelaziz.github.io/CRUD-APP/",
             code:"https://github.com/Diaa-0-Abdelaziz/CRUD-APP",
             role:"js app"
@@ -56,7 +64,7 @@ export default function projects() {
         {
             img:project5,
             title:"Yummy",
-            tecnoUsed:"Html5, Css3, js, Bootstrap, animation, Regux, api",
+            tecnoUsed:"Html5, Css3, js, Bootstrap, animation, Regux and api.",
             live:"https://diaa-0-abdelaziz.github.io/Exam2-Yummy/",
             code:"https://github.com/Diaa-0-Abdelaziz/Exam2-Yummy",
             role:"js app"
@@ -64,7 +72,7 @@ export default function projects() {
         {
             img:project6,
             title:"Mealify",
-            tecnoUsed:"Html5, Css3, animation, darkmode, responsive",
+            tecnoUsed:"Html5, Css3, animation, darkmode and responsive.",
             live:"https://diaa-0-abdelaziz.github.io/Mealify/",
             code:"https://github.com/Diaa-0-Abdelaziz/Mealify",
             role:"landing page"
@@ -72,7 +80,7 @@ export default function projects() {
         {
             img:project7,
             title:"Daniels",
-            tecnoUsed:"Html5, Css3, Bootstrap, animation, responsive",
+            tecnoUsed:"Html5, Css3, Bootstrap, animation and responsive.",
             live:"https://diaa-0-abdelaziz.github.io/Exam1-DANIELS/",
             code:"https://github.com/Diaa-0-Abdelaziz/Exam1-DANIELS",
             role:"landing page"
@@ -80,7 +88,7 @@ export default function projects() {
         {
             img:project8,
             title:"Hehia Clinics",
-            tecnoUsed:"Html5, Css3, js, Bootstrap, animation, responsive",
+            tecnoUsed:"Html5, Css3, js, Bootstrap, animation and responsive.",
             live:"https://diaa-0-abdelaziz.github.io/Hehia-City-Clinics/",
             code:"https://github.com/Diaa-0-Abdelaziz/Hehia-City-Clinics",
             role:"web app"
