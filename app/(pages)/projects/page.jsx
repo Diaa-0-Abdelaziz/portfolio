@@ -33,7 +33,7 @@ export default function projects() {
             img:project1,
             title:"fresh cart",
             tecnoUsed:"Html, Css, js, Bootstrap, responsive, React and api.",
-            live:"https://ecommerce-cq61q9log-diaa-abdelazizs-projects.vercel.app/",
+            live:"https://ecommerce-six-sage.vercel.app/",
             code:"https://github.com/Diaa-0-Abdelaziz/Ecommerce",
             role:"E-Commerce app"
         },
