@@ -1,7 +1,7 @@
 import React from 'react'
 import"./TwoProject.css"
-import progect1 from '../../imges/project1.jpg';
-import progect2 from '../../imges/project2.jpg';
+import progect1 from '../../imges/project9.jpg';
+import progect2 from '../../imges/project11.png';
 import Image from 'next/image';
 import { GrFormNext } from "react-icons/gr";
 import Link from 'next/link';

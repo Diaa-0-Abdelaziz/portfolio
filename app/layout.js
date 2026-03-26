@@ -7,8 +7,16 @@ import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Diaa Abdelaziz",
-  description: "Personal Portfolio",
+  title: "Diaa Abdelaziz - Frontend Developer",
+  description: "Personal portfolio showcasing projects, skills, and experience in frontend development using React, Vue, and modern web technologies.",
+  keywords: "Frontend Developer, React, Vue, JavaScript, HTML, CSS, Portfolio, Web Development",
+  author: "Diaa Abdelaziz",
+  robots: "index, follow",
+  openGraph: {
+    title: "Diaa Abdelaziz - Frontend Developer",
+    description: "Check out my portfolio showcasing frontend projects, skills, and experience.",
+    siteName: "Diaa Abdelaziz Portfolio",
+  },
 };
 
 export default function RootLayout({ children }) {
