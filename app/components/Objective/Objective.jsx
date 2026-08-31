@@ -1,54 +1,107 @@
-import React from 'react'
-import { FaQuoteRight } from "react-icons/fa";
-import { SiNextdotjs } from "react-icons/si";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
 import { IoLogoHtml5 } from "react-icons/io";
-import { FaCss3Alt } from "react-icons/fa";
-import { FaVuejs } from "react-icons/fa";
-import { SiPhp } from "react-icons/si";
+import { FaCss3Alt, FaBootstrap, FaGitAlt, FaGithubSquare, FaSass, FaVuejs } from "react-icons/fa";
 import { TbBrandJavascript } from "react-icons/tb";
 import { RiReactjsLine } from "react-icons/ri";
-import { GrFormNext } from "react-icons/gr";
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFigma, SiRedux } from "react-icons/si";
+import "./Objective.css";
 
-import "./Objective.css"
-import Link from 'next/link';
+const stats = [
+  { value: "2+", label: "Years of experience" },
+  { value: "6+", label: "Projects shipped" },
+  { value: "15+", label: "Tools & technologies" },
+];
+
+const marqueeIcons = [
+  <IoLogoHtml5 key="html" />,
+  <FaCss3Alt key="css" />,
+  <TbBrandJavascript key="js" />,
+  <RiReactjsLine key="react" />,
+  <SiNextdotjs key="next" />,
+  <SiTailwindcss key="tw" />,
+  <FaBootstrap key="bs" />,
+  <FaVuejs key="vue" />,
+  <SiTypescript key="ts" />,
+  <SiRedux key="redux" />,
+  <FaSass key="sass" />,
+  <FaGitAlt key="git" />,
+  <FaGithubSquare key="gh" />,
+  <SiFigma key="figma" />,
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+};
+
 export default function Objective() {
   return (
-    <>
-      <div id='objective' className=" text-center objective container mt-5 mb-5 pb-5 ">
-        <h3>Objective</h3>
-        <div className=" d-flex flex-wrap justify-content-around">
-          <div className="mt-5">
-            <div className="content">
-              <div className="circle"><FaVuejs /></div>
-              <div className="circle2"><TbBrandJavascript /></div>
-              <div className="circle3"><SiPhp /></div>
-              <div className="circle4"><RiReactjsLine /></div>
-              <div className="circle_center">
-                <div className="circle5">
-                  <SiNextdotjs />
+    <section id="about" className="section about">
+      <div className="container about-grid">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
+          <p className="section-kicker mono">Who I am</p>
+          <h2 className="section-title">
+            Building thoughtful <span className="accent">interfaces</span>
+          </h2>
+          <p className="about-text">
+            I&rsquo;m a motivated, detail-oriented Frontend Developer with 2+
+            years of hands-on experience building responsive, user-friendly
+            web applications. I work mainly with React.js, Next.js and
+            Vue (2 &amp; 3) — using Vuex and Pinia for state management,
+            integrating third-party libraries, crafting reusable components
+            and shipping interactive UI features.
+          </p>
+          <p className="about-text">
+            I care about clean code, efficient component design and a
+            seamless user experience, and I&rsquo;m always looking to grow my
+            front-end craft on projects that push me forward.
+          </p>
+
+          <div className="stats-row">
+            {stats.map((s) => (
+              <div key={s.label} className="stat">
+                <span className="stat-value">{s.value}</span>
+                <span className="stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="marquee-wrap"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeUp}
+        >
+          <span className="mono marquee-caption">My toolbox</span>
+          <div className="marquee">
+            <div className="marquee-track">
+              {[...marqueeIcons, ...marqueeIcons].map((icon, i) => (
+                <div className="marquee-item" key={i}>
+                  {icon}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
-          <div className=" mt-5 d-flex flex-column justify-content-center align-items-center px-3">
-            <div className="icon">
-              <FaQuoteRight />
+          <div className="marquee marquee-reverse">
+            <div className="marquee-track">
+              {[...marqueeIcons.slice().reverse(), ...marqueeIcons.slice().reverse()].map((icon, i) => (
+                <div className="marquee-item" key={i}>
+                  {icon}
+                </div>
+              ))}
             </div>
-            <p className='message mt-5 mb-3'>I am a motivated and detail-oriented Frontend Developer with 2+ years of hands-on experience in building responsive,
-              user-friendly web applications. Skilled in React.js, Vue.js, HTML, CSS, and JavaScript, I have experience integrating third-party libraries,
-              creating dynamic components, and implementing interactive UI features. I am passionate about clean code, efficient component design,
-              and seamless user experiences, and I strive to contribute to innovative projects while continuously improving my front-end expertise.
-            </p>
-            {/* <Link href="/skills" className='show_more badge text-decoration-none'><span>Show More</span>
-              <div className="load">
-                <GrFormNext className='right right1' />
-                <GrFormNext className='right right2' />
-                <GrFormNext className='right right3' />
-              </div>
-            </Link> */}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </>
-  )
+    </section>
+  );
 }

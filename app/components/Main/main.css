@@ -1,63 +1,185 @@
-.home {
+.hero {
   position: relative;
-  background-image: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0)), url(../../imges/dots.png);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--header-h);
+  overflow: hidden;
 }
-.home .myName {
-  font-size: 30px;
-  font-weight: bolder;
-  background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255));
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  color: var(--accent-2);
+  font-size: 1rem;
+  margin-bottom: 14px;
+  letter-spacing: 0.03em;
+}
+
+.hero-name {
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.hero-role {
+  font-size: clamp(1.3rem, 3.4vw, 2.1rem);
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 22px;
+  min-height: 1.4em;
+}
+
+.hero-typed.accent,
+.accent-text {
+  background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.home .picture {
-  background-image: linear-gradient(rgb(75, 43, 255), rgb(40, 8, 79));
-  border-radius: 34% 66% 100% 0%/59% 48% 52% 41%;
+
+.hero-desc {
+  color: var(--text-dim);
+  max-width: 520px;
+  font-size: 1.05rem;
+  margin-bottom: 34px;
 }
-.home ul li {
-  margin: 0 5px;
-  font-size: 30px;
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 38px;
 }
-.home ul li a {
-  color: rgb(40, 8, 79);
+
+.hero-socials-inline {
+  display: flex;
+  gap: 20px;
 }
-.home .download_cv {
-  width: -moz-fit-content;
-  width: fit-content;
-  background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255));
+
+.hero-socials-inline a {
+  font-size: 1.6rem;
+  color: var(--text-faint);
+  transition: color 0.25s, transform 0.25s;
+  display: inline-flex;
 }
-@media screen and (max-width: 992px) {
-  .home .myName {
-    font-size: 20px;
+
+.hero-socials-inline a:hover {
+  color: var(--accent-2);
+  transform: translateY(-3px);
+}
+
+.hero-photo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+.hero-photo-frame {
+  position: relative;
+  width: min(340px, 78vw);
+  aspect-ratio: 4 / 4.7;
+  border-radius: 34% 66% 62% 38% / 46% 40% 60% 54%;
+  overflow: hidden;
+  background: var(--accent-gradient);
+  padding: 3px;
+}
+
+.hero-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--accent-rgb), 0.55),
+    transparent 65%
+  );
+  filter: blur(50px);
+  z-index: -1;
+}
+
+.hero-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 34% 66% 62% 38% / 46% 40% 60% 54%;
+  background: var(--bg-alt);
+}
+
+.hero-cv-chip {
+  margin-top: -26px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: rgba(10, 10, 16, 0.85);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  z-index: 2;
+  transition: border-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.hero-cv-chip:hover {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  transform: translateY(-2px);
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  animation: bob 2.4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 8px); }
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
   }
-  .home .picture {
-    width: 70% !important;
-    margin: auto;
+  .hero-photo {
+    justify-self: end;
   }
 }
-@media screen and (max-width: 768px) {
-  .home {
-    margin-top: 100px;
+
+@media (max-width: 899px) {
+  .hero {
     text-align: center;
+    padding-top: calc(var(--header-h) + 12px);
   }
-  .home .myName {
-    font-size: 20px;
+  .hero-desc {
+    margin-inline: auto;
   }
-  .home ul {
-    margin: auto;
-    margin-bottom: 20px;
+  .hero-cta,
+  .hero-socials-inline {
+    justify-content: center;
   }
-  .home .picture {
-    width: 60% !important;
-    margin: auto;
-  }
-  .home .download_cv {
-    margin: auto;
-    margin-bottom: 20px;
+  .hero-photo {
+    order: -1;
   }
 }
-@media screen and (max-width: 285px) {
-  .home .myName {
-    font-size: 15px;
-  }
-}/*# sourceMappingURL=main.css.map */

@@ -1,24 +1,135 @@
 .contactForm {
-  background-image: linear-gradient(rgba(40, 8, 79, 0.119), rgba(75, 43, 255, 0.366)), url(../../imges/dots.png);
-  background-attachment: fixed;
-  background-repeat: repeat;
+  padding-top: calc(var(--header-h) + 24px);
 }
-.contactForm form .inputsForm {
-  border-radius: 5px;
-  border: none;
-  box-shadow: 0px 0px 10px rgb(40, 8, 79);
-  outline: none;
-  background-color: rgb(40, 8, 79);
-  color: wheat;
-  width: 100%;
-  padding: 15px;
-  outline: none;
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: start;
 }
-.contactForm form button {
-  background-image: linear-gradient(to right, rgb(40, 8, 79), rgb(75, 43, 255));
-  color: white;
+
+.contact-intro {
+  color: var(--text-dim);
+  max-width: 480px;
+  margin-top: 6px;
+}
+
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-block: 32px 28px;
+}
+
+.contact-info-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.contact-info-list a {
+  color: var(--text);
+  transition: color 0.25s;
+}
+
+.contact-info-list a:hover {
+  color: var(--accent-2);
+}
+
+.contact-info-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent-2);
+  font-size: 1.15rem;
+}
+
+.contact-socials {
+  display: flex;
+  gap: 18px;
+}
+
+.contact-socials a {
+  font-size: 1.6rem;
+  color: var(--text-faint);
+  transition: color 0.25s, transform 0.25s;
+  display: inline-flex;
+}
+
+.contact-socials a:hover {
+  color: var(--accent-2);
+  transform: translateY(-3px);
+}
+
+.contact-form {
+  padding: clamp(24px, 4vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  order: -1;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.inputsForm {
   width: 100%;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-}/*# sourceMappingURL=ContactInfo.css.map */
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  color: var(--text);
+  transition: border-color 0.25s, background 0.25s;
+}
+
+textarea.inputsForm {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.inputsForm:focus {
+  border-color: var(--accent-2);
+  background: var(--surface);
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.82rem;
+}
+
+.submit-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+  }
+}
