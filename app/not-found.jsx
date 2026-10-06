@@ -5,7 +5,7 @@ import { HiOutlineArrowLeft } from "react-icons/hi";
 import "./not-found.css"
 import { useLang } from "./i18n/LanguageProvider";
 
-export default function notFound() {
+export default function NotFound() {
   const { t } = useLang();
   return (
     <section className='not-found-page'>
