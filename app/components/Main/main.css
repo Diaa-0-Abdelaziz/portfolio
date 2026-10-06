@@ -125,7 +125,7 @@
   padding: 10px 20px;
   border-radius: 999px;
   font-size: 0.8rem;
-  background: rgba(10, 10, 16, 0.85);
+  background: var(--glass-bg);
   border: 1px solid var(--border-strong);
   backdrop-filter: blur(10px);
   color: var(--text);

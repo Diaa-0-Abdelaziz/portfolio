@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { HiOutlineMenu, HiOutlineX, HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 import { IoMdCloudDownload } from "react-icons/io";
 import "./navbar.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLang } from "../../i18n/LanguageProvider";
+import { useTheme } from "../../i18n/ThemeProvider";
 
 const links = [
   { num: "00", key: "home", pathName: "/" },
@@ -21,6 +22,7 @@ const RESUME_URL =
 export default function Navbar() {
   const path = usePathname();
   const { t, dir, toggleLang } = useLang();
+  const { theme, toggleTheme } = useTheme();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -66,6 +68,13 @@ export default function Navbar() {
             aria-label={t.common.switchLabel}
           >
             {t.common.switchTo}
+          </button>
+          <button
+            className="theme-btn"
+            onClick={toggleTheme}
+            aria-label={theme === "dark" ? t.nav.toLight : t.nav.toDark}
+          >
+            {theme === "dark" ? <HiOutlineSun /> : <HiOutlineMoon />}
           </button>
           <Link
             href={RESUME_URL}

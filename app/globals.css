@@ -23,6 +23,15 @@
   --danger: #f87171;
   --success: #34d399;
 
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --ghost-bg: rgba(255, 255, 255, 0.02);
+  --hover-bg: rgba(255, 255, 255, 0.04);
+  --nav-bg: rgba(8, 8, 12, 0.72);
+  --glass-bg: rgba(10, 10, 16, 0.85);
+  --card-fade: rgba(17, 17, 24, 0.6);
+  --backdrop-bg: rgba(3, 3, 6, 0.6);
+  color-scheme: dark;
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 24px;
@@ -157,10 +166,10 @@ body {
   pointer-events: none;
   background-image: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.035) 1px,
+      var(--grid-line) 1px,
       transparent 1px
     ),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
 }
@@ -244,7 +253,7 @@ body {
 .btn-ghost {
   border: 1px solid var(--border-strong);
   color: var(--text);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--ghost-bg);
 }
 
 .btn-ghost:hover {
@@ -288,7 +297,7 @@ body {
   background: linear-gradient(
     180deg,
     var(--surface),
-    rgba(17, 17, 24, 0.6)
+    var(--card-fade)
   );
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -366,4 +375,74 @@ body {
 
 .hero-name {
   unicode-bidi: plaintext;
+}
+
+/* ============================================================
+   Light theme
+   ============================================================ */
+:root[data-theme="light"] {
+  --bg: #f6f6fb;
+  --bg-alt: #eeeef7;
+  --surface: #ffffff;
+  --surface-2: #f0f0f8;
+  --border: rgba(20, 20, 45, 0.1);
+  --border-strong: rgba(20, 20, 45, 0.18);
+
+  --text: #14141f;
+  --text-dim: #4d4c66;
+  --text-faint: #7a798f;
+
+  --accent: #6d4aff;
+  --accent-2: #0891b2;
+  --accent-rgb: 109, 74, 255;
+  --accent-2-rgb: 8, 145, 178;
+  --accent-soft: rgba(109, 74, 255, 0.1);
+
+  --danger: #dc2626;
+  --success: #059669;
+
+  --grid-line: rgba(20, 20, 45, 0.05);
+  --ghost-bg: rgba(255, 255, 255, 0.6);
+  --hover-bg: rgba(20, 20, 45, 0.05);
+  --nav-bg: rgba(246, 246, 251, 0.78);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --card-fade: rgba(255, 255, 255, 0.7);
+  --backdrop-bg: rgba(20, 20, 40, 0.35);
+  color-scheme: light;
+}
+
+:root[data-theme="light"] .hero {
+  background-image: url("./imges/hero-bg-light.svg");
+}
+
+/* Keep text readable on elements that sit over project screenshots */
+:root[data-theme="light"] .project-card-overlay,
+:root[data-theme="light"] .project-role-tag {
+  --text: #eceaf5;
+  --text-dim: #a3a1b5;
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --surface: #111118;
+  --surface-2: #16161f;
+  --accent-2: #22d3ee;
+  --accent-2-rgb: 34, 211, 238;
+}
+
+/* Theme toggle */
+.theme-btn {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  transition: color 0.25s, border-color 0.25s, background 0.25s;
+}
+
+.theme-btn:hover {
+  color: var(--text);
+  border-color: var(--accent-2);
+  background: rgba(var(--accent-2-rgb), 0.08);
 }

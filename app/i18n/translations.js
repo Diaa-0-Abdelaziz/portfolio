@@ -1,6 +1,7 @@
 export const LANGS = ["en", "ar"];
 export const DEFAULT_LANG = "en";
 export const LANG_COOKIE = "lang";
+export const THEME_COOKIE = "theme";
 
 export const translations = {
   en: {
@@ -23,6 +24,8 @@ export const translations = {
       homeLabel: "Diaa Abdelaziz - home",
       openMenu: "Open menu",
       closeMenu: "Close menu",
+      toLight: "Switch to light mode",
+      toDark: "Switch to dark mode",
     },
     hero: {
       eyebrow: "Hi, my name is",
@@ -184,6 +187,8 @@ export const translations = {
       homeLabel: "ضياء عبدالعزيز - الرئيسية",
       openMenu: "فتح القائمة",
       closeMenu: "إغلاق القائمة",
+      toLight: "التبديل إلى الوضع الفاتح",
+      toDark: "التبديل إلى الوضع الداكن",
     },
     hero: {
       eyebrow: "أهلاً، أنا",

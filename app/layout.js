@@ -5,7 +5,8 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTopButton from "./ScrollToTopButton/ScrollToTopButton";
 import { LanguageProvider } from "./i18n/LanguageProvider";
-import { translations, LANGS, DEFAULT_LANG, LANG_COOKIE } from "./i18n/translations";
+import { ThemeProvider } from "./i18n/ThemeProvider";
+import { translations, LANGS, DEFAULT_LANG, LANG_COOKIE, THEME_COOKIE } from "./i18n/translations";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const jetbrainsMono = JetBrains_Mono({
@@ -45,9 +46,11 @@ export function generateMetadata() {
 
 export default function RootLayout({ children }) {
   const lang = getLang();
+  const theme = cookies().get(THEME_COOKIE)?.value === "light" ? "light" : "dark";
   return (
-    <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
+    <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"} data-theme={theme}>
       <body className={`${inter.variable} ${jetbrainsMono.variable} ${cairo.variable}`}>
+        <ThemeProvider initialTheme={theme}>
         <LanguageProvider initialLang={lang}>
           <div className="noise-grid" aria-hidden="true" />
           <Navbar />
@@ -55,6 +58,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
