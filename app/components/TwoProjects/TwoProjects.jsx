@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { HiOutlineArrowRight, HiOutlineExternalLink } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { projects } from "../../data/projects";
+import { useLang } from "../../i18n/LanguageProvider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
@@ -14,6 +15,8 @@ const fadeUp = {
 };
 
 export default function TwoProjects() {
+  const { t } = useLang();
+  const f = t.featured;
   const featured = projects.filter((p) => p.featured);
 
   return (
@@ -25,9 +28,9 @@ export default function TwoProjects() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="section-kicker mono">Selected work</p>
+          <p className="section-kicker mono">{f.kicker}</p>
           <h2 className="section-title">
-            Featured <span className="accent">Projects</span>
+            {f.titleA} <span className="accent">{f.titleB}</span>
           </h2>
         </motion.div>
 
@@ -51,9 +54,9 @@ export default function TwoProjects() {
                 />
               </div>
               <div className="featured-copy">
-                <span className="mono section-kicker">{project.role}</span>
+                <span className="mono section-kicker">{t.roles[project.role] || project.role}</span>
                 <h3>{project.title}</h3>
-                <p className="featured-card-desc">{project.description}</p>
+                <p className="featured-card-desc">{t.projects[project.title]?.description || project.description}</p>
                 <ul className="featured-tags">
                   {project.tags.map((t) => (
                     <li key={t} className="tag">
@@ -64,11 +67,11 @@ export default function TwoProjects() {
                 <div className="featured-links">
                   {project.live && (
                     <Link href={project.live} target="_blank" className="btn btn-ghost">
-                      Live Site <HiOutlineExternalLink />
+                      {f.liveSite} <HiOutlineExternalLink />
                     </Link>
                   )}
                   {project.code && (
-                    <Link href={project.code} target="_blank" className="btn-icon" aria-label="source code">
+                    <Link href={project.code} target="_blank" className="btn-icon" aria-label={f.sourceCode}>
                       <FaGithubSquare />
                     </Link>
                   )}
@@ -80,7 +83,7 @@ export default function TwoProjects() {
 
         <div className="featured-cta">
           <Link href="/projects" className="btn btn-primary">
-            View All Projects <HiOutlineArrowRight />
+            {f.viewAll} <HiOutlineArrowRight className="flip-rtl" />
           </Link>
         </div>
       </div>

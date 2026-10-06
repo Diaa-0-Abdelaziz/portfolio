@@ -8,6 +8,7 @@ import { RiReactjsLine } from "react-icons/ri";
 import { SiNextdotjs, SiAxios, SiTailwindcss, SiTypescript, SiFigma, SiRedux } from "react-icons/si";
 import { DiResponsive } from "react-icons/di";
 import { FaResolving } from "react-icons/fa6";
+import { useLang } from "../../i18n/LanguageProvider";
 import "./skills.css";
 
 const categories = [
@@ -58,16 +59,17 @@ const fadeUp = {
 };
 
 export default function Skills() {
+  const { t } = useLang();
+  const s = t.skills;
   return (
     <section className="section skills-page">
       <div className="container">
-        <p className="section-kicker mono">What I work with</p>
+        <p className="section-kicker mono">{s.kicker}</p>
         <h1 className="section-title">
-          Skills &amp; <span className="accent">Technologies</span>
+          {s.titleA} <span className="accent">{s.titleB}</span>
         </h1>
         <p className="skills-intro">
-          Tools and technologies I reach for daily to design, build and ship
-          production-ready interfaces.
+          {s.intro}
         </p>
 
         <div className="skills-categories">
@@ -81,12 +83,12 @@ export default function Skills() {
               variants={fadeUp}
               transition={{ delay: ci * 0.08 }}
             >
-              <h2 className="mono skill-category-title">{category.title}</h2>
+              <h2 className="mono skill-category-title">{s.categories[category.title] || category.title}</h2>
               <div className="skills-grid">
                 {category.items.map((skill) => (
                   <div key={skill.text} className="skill-item">
                     <div className="icon-wrapper">{skill.icon}</div>
-                    <span>{skill.text}</span>
+                    <span>{s.items[skill.text] || skill.text}</span>
                   </div>
                 ))}
               </div>

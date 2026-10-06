@@ -2,8 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { HiArrowUp } from "react-icons/hi";
 import "./scrollToTop.css"
+import { useLang } from "../i18n/LanguageProvider";
 
 function ScrollToTopButton() {
+  const { t } = useLang();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function ScrollToTopButton() {
     <button
       className={`scroll-to-top-button ${isVisible ? 'show' : ''}`}
       onClick={scrollToTop}
-      aria-label="Scroll back to top"
+      aria-label={t.scrollTop}
     >
       <HiArrowUp />
     </button>

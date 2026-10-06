@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useLang } from "../../i18n/LanguageProvider";
 import "./Experience.css";
 
 const experience = [
@@ -29,6 +30,8 @@ const fadeUp = {
 };
 
 export default function Experience() {
+  const { t } = useLang();
+  const e = t.experience;
   return (
     <section id="experience" className="section experience">
       <div className="container">
@@ -38,14 +41,16 @@ export default function Experience() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="section-kicker mono">Where I&rsquo;ve worked</p>
+          <p className="section-kicker mono">{e.kicker}</p>
           <h2 className="section-title">
-            Work <span className="accent">Experience</span>
+            {e.titleA} <span className="accent">{e.titleB}</span>
           </h2>
         </motion.div>
 
         <div className="timeline">
-          {experience.map((job, i) => (
+          {experience.map((job, i) => {
+            const tr = e.jobs[job.company];
+            return (
             <motion.div
               key={job.company}
               className="timeline-item"
@@ -59,7 +64,7 @@ export default function Experience() {
               <div className="timeline-content card">
                 <div className="timeline-head">
                   <h3>
-                    {job.role}{" "}
+                    {tr.role}{" "}
                     {job.companyUrl ? (
                       <a
                         href={job.companyUrl}
@@ -67,19 +72,20 @@ export default function Experience() {
                         rel="noopener noreferrer"
                         className="timeline-at"
                       >
-                        @ {job.company}
+                        @ {tr.company || job.company}
                       </a>
                     ) : (
-                      <span className="timeline-at">@ {job.company}</span>
+                      <span className="timeline-at">@ {tr.company || job.company}</span>
                     )}
                   </h3>
-                  <span className="mono timeline-period">{job.period}</span>
+                  <span className="mono timeline-period">{tr.period}</span>
                 </div>
-                <p>{job.description}</p>
-                {job.current && <span className="tag timeline-current-tag">Current</span>}
+                <p>{tr.description}</p>
+                {job.current && <span className="tag timeline-current-tag">{e.current}</span>}
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -9,6 +9,7 @@ import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaWhatsappSquare } from "
 import { IoMdCloudDownload } from "react-icons/io";
 import { HiArrowDown, HiOutlineArrowRight } from "react-icons/hi";
 import Link from "next/link";
+import { useLang } from "../../i18n/LanguageProvider";
 
 const socials = [
   { icon: <FaGithubSquare />, href: "https://github.com/Diaa-0-Abdelaziz", label: "GitHub" },
@@ -28,15 +29,11 @@ const fadeUp = {
 
 export default function Main() {
   const el = React.useRef(null);
+  const { t } = useLang();
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: [
-        "Front-End Developer.",
-        "React &amp; Next.js Developer.",
-        "Vue.js Developer.",
-        "Interfaces that feel right.",
-      ],
+      strings: t.hero.typed,
       typeSpeed: 35,
       backSpeed: 22,
       backDelay: 1400,
@@ -44,33 +41,31 @@ export default function Main() {
       loop: true,
     });
     return () => typed.destroy();
-  }, []);
+  }, [t]);
 
   return (
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={0} className="mono hero-eyebrow">
-            Hi, my name is
+            {t.hero.eyebrow}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1} className="hero-name">
-            Diaa Abdelaziz.
+            {t.common.name}.
           </motion.h1>
           <motion.h2 variants={fadeUp} initial="hidden" animate="show" custom={2} className="hero-role">
-            I&rsquo;m a <span ref={el} className="hero-typed accent" />
+            {t.hero.roleIntro} <span ref={el} className="hero-typed accent" />
           </motion.h2>
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={3} className="hero-desc">
-            I design and build fast, responsive web applications with React,
-            Vue and Next.js — focused on clean components, smooth
-            interactions, and pixel-accurate UI.
+            {t.hero.desc}
           </motion.p>
 
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} className="hero-cta">
             <Link href="/projects" className="btn btn-primary">
-              View Projects <HiOutlineArrowRight />
+              {t.hero.viewProjects} <HiOutlineArrowRight className="flip-rtl" />
             </Link>
             <Link href="/contactme" className="btn btn-ghost">
-              Get In Touch
+              {t.hero.getInTouch}
             </Link>
           </motion.div>
 
@@ -92,21 +87,21 @@ export default function Main() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
           <div className="hero-photo-frame">
-            <Image priority width={420} height={520} src={picture} className="hero-photo-img" alt="Diaa Abdelaziz" />
+            <Image priority width={420} height={520} src={picture} className="hero-photo-img" alt={t.common.name} />
           </div>
           <Link
             href="https://drive.google.com/drive/folders/1P8ISYv-XkffPKPnjhIMtwwzs3qkmc6ao?usp=sharing"
             target="_blank"
             className="hero-cv-chip mono"
-            aria-label="download my cv"
+            aria-label={t.hero.downloadCvLabel}
           >
-            <IoMdCloudDownload /> Download CV
+            <IoMdCloudDownload /> {t.hero.downloadCv}
           </Link>
         </motion.div>
       </div>
 
       <div className="scroll-cue mono">
-        <span>Scroll</span>
+        <span>{t.hero.scroll}</span>
         <HiArrowDown />
       </div>
     </section>

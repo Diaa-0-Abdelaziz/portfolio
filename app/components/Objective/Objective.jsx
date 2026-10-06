@@ -6,13 +6,10 @@ import { FaCss3Alt, FaBootstrap, FaGitAlt, FaGithubSquare, FaSass, FaVuejs } fro
 import { TbBrandJavascript } from "react-icons/tb";
 import { RiReactjsLine } from "react-icons/ri";
 import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFigma, SiRedux } from "react-icons/si";
+import { useLang } from "../../i18n/LanguageProvider";
 import "./Objective.css";
 
-const stats = [
-  { value: "2+", label: "Years of experience" },
-  { value: "6+", label: "Projects shipped" },
-  { value: "15+", label: "Tools & technologies" },
-];
+const statValues = ["2+", "6+", "15+"];
 
 const marqueeIcons = [
   <IoLogoHtml5 key="html" />,
@@ -37,6 +34,8 @@ const fadeUp = {
 };
 
 export default function Objective() {
+  const { t } = useLang();
+  const a = t.about;
   return (
     <section id="about" className="section about">
       <div className="container about-grid">
@@ -46,29 +45,22 @@ export default function Objective() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <p className="section-kicker mono">Who I am</p>
+          <p className="section-kicker mono">{a.kicker}</p>
           <h2 className="section-title">
-            Building thoughtful <span className="accent">interfaces</span>
+            {a.titleA} <span className="accent">{a.titleB}</span> {a.titleC}
           </h2>
           <p className="about-text">
-            I&rsquo;m a motivated, detail-oriented Frontend Developer with 2+
-            years of hands-on experience building responsive, user-friendly
-            web applications. I work mainly with React.js, Next.js and
-            Vue (2 &amp; 3) — using Vuex and Pinia for state management,
-            integrating third-party libraries, crafting reusable components
-            and shipping interactive UI features.
+            {a.p1}
           </p>
           <p className="about-text">
-            I care about clean code, efficient component design and a
-            seamless user experience, and I&rsquo;m always looking to grow my
-            front-end craft on projects that push me forward.
+            {a.p2}
           </p>
 
           <div className="stats-row">
-            {stats.map((s) => (
-              <div key={s.label} className="stat">
-                <span className="stat-value">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
+            {statValues.map((value, i) => (
+              <div key={value} className="stat">
+                <span className="stat-value">{value}</span>
+                <span className="stat-label">{a.stats[i]}</span>
               </div>
             ))}
           </div>
@@ -81,7 +73,7 @@ export default function Objective() {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
         >
-          <span className="mono marquee-caption">My toolbox</span>
+          <span className="mono marquee-caption">{a.toolbox}</span>
           <div className="marquee">
             <div className="marquee-track">
               {[...marqueeIcons, ...marqueeIcons].map((icon, i) => (

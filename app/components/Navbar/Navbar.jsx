@@ -6,12 +6,13 @@ import { IoMdCloudDownload } from "react-icons/io";
 import "./navbar.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useLang } from "../../i18n/LanguageProvider";
 
 const links = [
-  { num: "00", linkName: "Home", pathName: "/" },
-  { num: "01", linkName: "Skills", pathName: "/skills" },
-  { num: "02", linkName: "Projects", pathName: "/projects" },
-  { num: "03", linkName: "Contact", pathName: "/contactme" },
+  { num: "00", key: "home", pathName: "/" },
+  { num: "01", key: "skills", pathName: "/skills" },
+  { num: "02", key: "projects", pathName: "/projects" },
+  { num: "03", key: "contact", pathName: "/contactme" },
 ];
 
 const RESUME_URL =
@@ -19,6 +20,7 @@ const RESUME_URL =
 
 export default function Navbar() {
   const path = usePathname();
+  const { t, dir, toggleLang } = useLang();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,7 +41,7 @@ export default function Navbar() {
   return (
     <header className={`site-nav ${scrolled ? "scrolled" : ""}`}>
       <div className="container site-nav-inner">
-        <Link href="/" className="brand" aria-label="Diaa Abdelaziz - home">
+        <Link href="/" className="brand" aria-label={t.nav.homeLabel}>
           <span className="brand-mark">D</span>
           <span className="brand-name mono">iaa.dev</span>
         </Link>
@@ -52,23 +54,30 @@ export default function Navbar() {
               className={`nav-link ${path === link.pathName ? "active" : ""}`}
             >
               <span className="mono nav-num">{link.num}.</span>
-              {link.linkName}
+              {t.nav[link.key]}
             </Link>
           ))}
         </nav>
 
         <div className="nav-actions">
+          <button
+            className="lang-btn mono"
+            onClick={toggleLang}
+            aria-label={t.common.switchLabel}
+          >
+            {t.common.switchTo}
+          </button>
           <Link
             href={RESUME_URL}
             target="_blank"
             className="btn btn-ghost resume-btn"
           >
-            Resume <IoMdCloudDownload />
+            {t.nav.resume} <IoMdCloudDownload />
           </Link>
           <button
             className="menu-btn"
             onClick={() => setOpen(true)}
-            aria-label="Open menu"
+            aria-label={t.nav.openMenu}
           >
             <HiOutlineMenu />
           </button>
@@ -87,15 +96,15 @@ export default function Navbar() {
             />
             <motion.div
               className="drawer"
-              initial={{ x: "100%" }}
+              initial={{ x: dir === "rtl" ? "-100%" : "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: dir === "rtl" ? "-100%" : "100%" }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <button
                 className="drawer-close"
                 onClick={() => setOpen(false)}
-                aria-label="Close menu"
+                aria-label={t.nav.closeMenu}
               >
                 <HiOutlineX />
               </button>
@@ -103,7 +112,7 @@ export default function Navbar() {
                 {links.map((link, i) => (
                   <motion.li
                     key={link.pathName}
-                    initial={{ opacity: 0, x: 24 }}
+                    initial={{ opacity: 0, x: dir === "rtl" ? -24 : 24 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.08 * i + 0.1 }}
                   >
@@ -113,7 +122,7 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                     >
                       <span className="mono nav-num">{link.num}.</span>
-                      {link.linkName}
+                      {t.nav[link.key]}
                     </Link>
                   </motion.li>
                 ))}
@@ -124,7 +133,7 @@ export default function Navbar() {
                 className="btn btn-primary"
                 onClick={() => setOpen(false)}
               >
-                Resume <IoMdCloudDownload />
+                {t.nav.resume} <IoMdCloudDownload />
               </Link>
             </motion.div>
           </>

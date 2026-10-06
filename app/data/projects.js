@@ -6,7 +6,7 @@ import project5 from "../imges/project5.jpg";
 import project6 from "../imges/project6.jpg";
 import project7 from "../imges/project7.jpg";
 import project8 from "../imges/project8.jpg";
-import project9 from "../imges/project9.jpg";
+import project9 from "../imges/tajeer.jpg";
 import project10 from "../imges/project10.png";
 import project11 from "../imges/project11.png";
 
@@ -35,7 +35,7 @@ export const projects = [
   },
   {
     img: project9,
-    title: "Tajeer",
+    title: "Zenith",
     description:
       "Car rental web app with schema-validated forms and a fully responsive layout.",
     tags: ["HTML", "CSS", "JavaScript", "Bootstrap", "React", "Yup"],

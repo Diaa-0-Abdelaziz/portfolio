@@ -1,6 +1,8 @@
+'use client'
 import React from 'react'
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaWhatsappSquare } from "react-icons/fa";
 import "./footer.css"
+import { useLang } from "../../i18n/LanguageProvider";
 
 const START_YEAR = 2023;
 
@@ -12,13 +14,14 @@ const socials = [
 ];
 
 export default function Footer() {
+  const { t } = useLang();
   const year = new Date().getFullYear();
   const range = year > START_YEAR ? `${START_YEAR}–${year}` : `${year}`;
   return (
     <footer className="site-footer">
       <div className="container footer-inner">
         <p className="footer-brand mono">
-          Diaa Abdelaziz <span>&copy; {range}</span>
+          {t.common.name} <span>&copy; {range}</span>
         </p>
 
         <ul className="footer-socials">
@@ -32,7 +35,7 @@ export default function Footer() {
         </ul>
 
         <a href="#" className="footer-top mono">
-          Back to top
+          {t.footer.backToTop}
         </a>
       </div>
     </footer>

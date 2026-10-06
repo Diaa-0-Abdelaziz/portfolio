@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { HiOutlineMail, HiOutlinePhone, HiOutlineLocationMarker } from "react-icons/hi";
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaWhatsappSquare } from "react-icons/fa";
 import "./ContactInfo.css"
+import { useLang } from "../../i18n/LanguageProvider";
 
 const socials = [
   { icon: <FaGithubSquare />, href: "https://github.com/Diaa-0-Abdelaziz", label: "GitHub" },
@@ -16,11 +17,13 @@ const socials = [
 ];
 
 export default function ContactForm() {
+    const { t } = useLang();
+    const c = t.contact;
 
     let mySchema = Yup.object({
-        name:Yup.string().required('name is required').min(3,'min is 3 char').max(15, 'max is 15 char') ,
-        email:Yup.string().email("email isn't valid").required('email is required'),
-        message:Yup.string().required('message is required').min(10,'You shold write 10 char or more').max(100, 'max length 100 char')
+        name:Yup.string().required(c.v.nameRequired).min(3,c.v.nameMin).max(15, c.v.nameMax) ,
+        email:Yup.string().email(c.v.emailInvalid).required(c.v.emailRequired),
+        message:Yup.string().required(c.v.messageRequired).min(10,c.v.messageMin).max(100, c.v.messageMax)
       })
       let formik = useFormik({
         initialValues:{
@@ -50,7 +53,7 @@ export default function ContactForm() {
           toast.success(data.message);
           resetForm();
       } catch (error) {
-          toast.error("Something went wrong, please try again.");
+          toast.error(c.error);
       }
 
       }
@@ -65,27 +68,26 @@ export default function ContactForm() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="section-kicker mono">Get in touch</p>
+          <p className="section-kicker mono">{c.kicker}</p>
           <h1 className="section-title">
-            Let&rsquo;s build something <span className="accent">great</span> together
+            {c.titleA} <span className="accent">{c.titleB}</span> {c.titleC}
           </h1>
           <p className="contact-intro">
-            Have a project in mind or just want to say hi? My inbox is always
-            open — I try to reply within a day or two.
+            {c.intro}
           </p>
 
           <ul className="contact-info-list">
             <li>
               <span className="contact-info-icon"><HiOutlineMail /></span>
-              <a href="mailto:diaaa5350@gmail.com">diaaa5350@gmail.com</a>
+              <a href="mailto:diaaa5350@gmail.com" dir="ltr">diaaa5350@gmail.com</a>
             </li>
             <li>
               <span className="contact-info-icon"><HiOutlinePhone /></span>
-              <a href="https://wa.me/201117578674" target="_blank" rel="noopener noreferrer">+20 111 757 8674</a>
+              <a href="https://wa.me/201117578674" target="_blank" rel="noopener noreferrer" dir="ltr">+20 111 757 8674</a>
             </li>
             <li>
               <span className="contact-info-icon"><HiOutlineLocationMarker /></span>
-              <span>Egypt</span>
+              <span>{c.location}</span>
             </li>
           </ul>
 
@@ -119,7 +121,7 @@ export default function ContactForm() {
               name='name'
               id="name"
             />
-            <label htmlFor="name">Your Name</label>
+            <label htmlFor="name">{c.name}</label>
             {formik.touched.name && formik.errors.name ? <p className='field-error'>{formik.errors.name}</p>: ""}
           </div>
 
@@ -134,7 +136,7 @@ export default function ContactForm() {
               name='email'
               id="email"
             />
-            <label htmlFor="email">Your Email</label>
+            <label htmlFor="email">{c.email}</label>
             {formik.touched.email && formik.errors.email ? <p className='field-error'>{formik.errors.email}</p>: ""}
           </div>
 
@@ -149,7 +151,7 @@ export default function ContactForm() {
               id="message"
               rows="5"
             ></textarea>
-            <label htmlFor="message">Your Message</label>
+            <label htmlFor="message">{c.message}</label>
             {formik.touched.message && formik.errors.message ? <p className='field-error'>{formik.errors.message}</p>: ""}
           </div>
 
@@ -158,7 +160,7 @@ export default function ContactForm() {
             type="submit"
             className="btn btn-primary submit-btn"
           >
-            {formik.isSubmitting ? "Sending..." : "Send Message"}
+            {formik.isSubmitting ? c.sending : c.send}
           </button>
         </motion.form>
 

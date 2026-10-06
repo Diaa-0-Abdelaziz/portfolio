@@ -6,9 +6,12 @@ import { motion } from "framer-motion";
 import { HiOutlineExternalLink } from "react-icons/hi";
 import { FaGithubSquare } from "react-icons/fa";
 import { projects } from "../../data/projects";
+import { useLang } from "../../i18n/LanguageProvider";
 import "./projects.css";
 
 export default function Projects() {
+  const { t } = useLang();
+  const p = t.projectsPage;
   const roles = useMemo(
     () => ["All", ...new Set(projects.map((p) => p.role))],
     []
@@ -21,13 +24,12 @@ export default function Projects() {
   return (
     <section className="section projects-page">
       <div className="container">
-        <p className="section-kicker mono">My work</p>
+        <p className="section-kicker mono">{p.kicker}</p>
         <h1 className="section-title">
-          All <span className="accent">Projects</span>
+          {p.titleA} <span className="accent">{p.titleB}</span>
         </h1>
         <p className="projects-intro">
-          A selection of websites and web apps I&rsquo;ve built — from
-          landing pages to full booking and consulting platforms.
+          {p.intro}
         </p>
 
         <div className="filter-tabs">
@@ -37,7 +39,7 @@ export default function Projects() {
               className={`filter-tab ${filter === role ? "active" : ""}`}
               onClick={() => setFilter(role)}
             >
-              {role}
+              {role === "All" ? p.all : t.roles[role] || role}
             </button>
           ))}
         </div>
@@ -62,21 +64,21 @@ export default function Projects() {
                 />
                 <div className="project-card-overlay">
                   {project.live && (
-                    <Link href={project.live} target="_blank" className="btn-icon" aria-label="live site">
+                    <Link href={project.live} target="_blank" className="btn-icon" aria-label={p.liveLabel}>
                       <HiOutlineExternalLink />
                     </Link>
                   )}
                   {project.code && (
-                    <Link href={project.code} target="_blank" className="btn-icon" aria-label="source code">
+                    <Link href={project.code} target="_blank" className="btn-icon" aria-label={t.featured.sourceCode}>
                       <FaGithubSquare />
                     </Link>
                   )}
                 </div>
-                <span className="tag project-role-tag">{project.role}</span>
+                <span className="tag project-role-tag">{t.roles[project.role] || project.role}</span>
               </div>
               <div className="project-card-body">
                 <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <p>{t.projects[project.title]?.description || project.description}</p>
                 <ul className="project-card-tags">
                   {project.tags.slice(0, 4).map((t) => (
                     <li key={t}>{t}</li>
