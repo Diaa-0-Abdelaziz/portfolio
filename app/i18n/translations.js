@@ -73,6 +73,12 @@ export const translations = {
         },
       },
     },
+    highlights: {
+      kicker: "Highlights",
+      titleA: "Featured",
+      titleB: "Post",
+      frameTitle: "Embedded LinkedIn post",
+    },
     featured: {
       kicker: "Selected work",
       titleA: "Featured",
@@ -236,6 +242,12 @@ export const translations = {
             "سلّمت مواقع وتطبيقات ويب مبنية بـ React لعملاء مستقلين، من صفحات الهبوط إلى منصات الحجز والاستشارات.",
         },
       },
+    },
+    highlights: {
+      kicker: "أبرز المحطات",
+      titleA: "منشور",
+      titleB: "مميز",
+      frameTitle: "منشور لينكدإن مضمّن",
     },
     featured: {
       kicker: "أعمال مختارة",

@@ -2,6 +2,7 @@ import React from 'react'
 import Main from './components/Main/Main'
 import Objective from './components/Objective/Objective'
 import Experience from './components/Experience/Experience'
+import Highlights from './components/Highlights/Highlights'
 import TwoProjects from './components/TwoProjects/TwoProjects'
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Main />
       <Objective />
       <Experience />
+      <Highlights />
       <TwoProjects />
     </>
   )
