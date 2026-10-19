@@ -9,7 +9,128 @@
   background: url("../../imges/hero-bg.svg") center / cover no-repeat;
 }
 
+/* ---------- Animated backdrop ---------- */
+.hero-backdrop {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  --ring-opacity: 0.32;
+}
+
+:root[data-theme="light"] .hero-backdrop {
+  --ring-opacity: 0.45;
+}
+
+.hero-backdrop .stop-a {
+  stop-color: var(--accent);
+}
+
+.hero-backdrop .stop-b {
+  stop-color: var(--accent-2);
+}
+
+.hero-backdrop .hb-dot-a {
+  fill: var(--accent-2);
+}
+
+.hero-backdrop .hb-dot-b {
+  fill: var(--accent);
+}
+
+.hb-rings {
+  opacity: var(--ring-opacity);
+  transform-origin: 1230px 470px;
+  animation: hb-drift 18s ease-in-out infinite alternate;
+}
+
+.hb-ring {
+  transform-origin: 1230px 470px;
+}
+
+.hb-ring-1 {
+  animation: hb-breathe 7s ease-in-out infinite alternate;
+}
+
+.hb-ring-2 {
+  animation: hb-spin 70s linear infinite;
+}
+
+.hb-ring-3 {
+  animation: hb-breathe 9s ease-in-out infinite alternate-reverse;
+}
+
+.hb-ring-4 {
+  animation: hb-spin 120s linear infinite reverse;
+}
+
+.hb-orbit {
+  transform-origin: 1230px 470px;
+  opacity: 0.9;
+}
+
+.hb-orbit-1 {
+  animation: hb-spin 26s linear infinite;
+}
+
+.hb-orbit-2 {
+  animation: hb-spin 48s linear infinite reverse;
+}
+
+.hb-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hb-float 6s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes hb-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hb-breathe {
+  from {
+    transform: scale(0.97);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hb-drift {
+  from {
+    transform: translate(-14px, 10px);
+  }
+  to {
+    transform: translate(14px, -12px);
+  }
+}
+
+@keyframes hb-float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.4);
+    opacity: 0.95;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-backdrop * {
+    animation: none !important;
+  }
+}
+
 .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   gap: 48px;

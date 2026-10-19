@@ -27,6 +27,55 @@ const fadeUp = {
   }),
 };
 
+// Animated rings + dots drawn over the static glow background (same viewBox as hero-bg.svg).
+function HeroBackdrop() {
+  return (
+    <svg
+      className="hero-backdrop"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMid slice"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="hero-ring" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" className="stop-a" />
+          <stop offset="1" className="stop-b" />
+        </linearGradient>
+        <radialGradient id="hero-fade" cx="50%" cy="50%" r="50%">
+          <stop offset="0.55" stopColor="#fff" />
+          <stop offset="1" stopColor="#fff" stopOpacity="0" />
+        </radialGradient>
+        <mask id="hero-mask">
+          <rect width="1600" height="900" fill="url(#hero-fade)" />
+        </mask>
+      </defs>
+
+      <g mask="url(#hero-mask)">
+        <g className="hb-rings" fill="none" stroke="url(#hero-ring)" strokeWidth="1.2">
+          <circle className="hb-ring hb-ring-1" cx="1230" cy="470" r="300" />
+          <circle className="hb-ring hb-ring-2" cx="1230" cy="470" r="420" strokeDasharray="4 10" />
+          <circle className="hb-ring hb-ring-3" cx="1230" cy="470" r="560" />
+          <circle className="hb-ring hb-ring-4" cx="1230" cy="470" r="700" strokeDasharray="2 18" />
+        </g>
+        <g className="hb-orbit hb-orbit-1">
+          <circle className="hb-dot-a" cx="930" cy="470" r="3.5" />
+        </g>
+        <g className="hb-orbit hb-orbit-2">
+          <circle className="hb-dot-b" cx="1230" cy="-90" r="3" />
+        </g>
+      </g>
+
+      <circle className="hb-dot hb-dot-a" cx="1530" cy="300" r="2.5" style={{ "--d": "0s" }} />
+      <circle className="hb-dot hb-dot-a" cx="1330" cy="130" r="2" style={{ "--d": "-2s" }} />
+      <circle className="hb-dot hb-dot-b" cx="1080" cy="800" r="3" style={{ "--d": "-4s" }} />
+      <circle className="hb-dot hb-dot-b" cx="1480" cy="690" r="2.5" style={{ "--d": "-1s" }} />
+      <circle className="hb-dot hb-dot-a" cx="760" cy="160" r="2" style={{ "--d": "-3s" }} />
+      <circle className="hb-dot hb-dot-b" cx="180" cy="640" r="2.5" style={{ "--d": "-5s" }} />
+      <circle className="hb-dot hb-dot-a" cx="420" cy="820" r="2" style={{ "--d": "-2.5s" }} />
+    </svg>
+  );
+}
+
 export default function Main() {
   const el = React.useRef(null);
   const { t } = useLang();
@@ -45,6 +94,7 @@ export default function Main() {
 
   return (
     <section className="hero">
+      <HeroBackdrop />
       <div className="container hero-grid">
         <div className="hero-copy">
           <motion.p variants={fadeUp} initial="hidden" animate="show" custom={0} className="mono hero-eyebrow">
