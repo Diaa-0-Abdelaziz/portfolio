@@ -1,65 +1,77 @@
 import project1 from "../imges/project1.jpg";
 import project2 from "../imges/project2.jpg";
-import project3 from "../imges/project3.jpg";
+import fernature from "../imges/fernature.jpg";
 import project4 from "../imges/project4.jpg";
 import project5 from "../imges/project5.jpg";
 import project6 from "../imges/project6.jpg";
 import project7 from "../imges/project7.jpg";
-import project8 from "../imges/project8.jpg";
-import project9 from "../imges/tajeer.jpg";
-import project10 from "../imges/project10.png";
-import project11 from "../imges/project11.png";
+import hehia from "../imges/hehia.jpg";
+import zenith from "../imges/zenith.jpg";
+import askExperts from "../imges/askexperts.jpg";
+import musaned from "../imges/musaned.jpg";
+import muhkam from "../imges/muhkam.jpg";
 
 export const projects = [
   {
-    img: project11,
+    img: muhkam,
+    title: "Muhkam",
+    description:
+      "Law firm management platform for cases, hearings, contracts, legal news and role-based team permissions.",
+    tags: ["Vue 3", "TypeScript", "Vite", "Tailwind", "Pinia", "Element Plus", "Tiptap", "RTL"],
+    live: "https://muhkam-nu.vercel.app/",
+    code: "",
+    role: "Web App",
+    featured: true,
+  },
+  {
+    img: musaned,
     title: "Musaned United Company",
     description:
-      "Corporate multilingual website with RTL support and rich page animations.",
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind", "React", "Formik", "RTL"],
+      "Bilingual (Arabic/English) corporate website for a tech services company: 27 pages covering services, investor relations and financial reports, with interactive stock charts and full RTL support.",
+    tags: ["React", "Vite", "Tailwind", "Ant Design", "Chart.js", "Formik", "Yup", "i18next", "RTL"],
     live: "https://musaned-united-company.vercel.app/",
     code: "",
     role: "Website",
     featured: true,
   },
   {
-    img: project10,
-    title: "Ask Experts",
-    description:
-      "Consulting platform landing experience with validated forms and motion-driven sections.",
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind", "React", "Formik"],
-    live: "https://ask-experts-ruby.vercel.app/",
-    code: "https://github.com/Diaa-0-Abdelaziz/Ask_Experts",
-    role: "Website",
-    featured: true,
-  },
-  {
-    img: project9,
+    img: zenith,
     title: "Zenith",
     description:
-      "Car rental web app with schema-validated forms and a fully responsive layout.",
-    tags: ["HTML", "CSS", "JavaScript", "Bootstrap", "React", "Yup"],
+      "Bilingual (Arabic/English) car rental web app with full RTL support, schema-validated forms and a responsive layout.",
+    tags: ["React", "JavaScript", "Bootstrap", "Formik", "Yup", "i18next", "RTL"],
     live: "https://tajeer-v376.vercel.app/",
     code: "",
     role: "Web App",
     featured: true,
   },
   {
-    img: project3,
+    img: askExperts,
+    title: "Ask Experts",
+    description:
+      "Multi-page consulting agency website: services with pricing plans, team, blog and contact pages, with scroll animations and carousels.",
+    tags: ["React", "Tailwind", "React Router", "AOS", "React Slick"],
+    live: "https://ask-experts-ruby.vercel.app/",
+    code: "https://github.com/Diaa-0-Abdelaziz/Ask_Experts",
+    role: "Website",
+    featured: true,
+  },
+  {
+    img: fernature,
     title: "Fernature",
-    description: "Furniture store landing page with scroll animations.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "React"],
+    description: "Furniture store landing page with product sliders, featured collections and scroll animations.",
+    tags: ["React", "Bootstrap", "SCSS", "AOS", "React Slick", "Font Awesome"],
     live: "https://fernature-six.vercel.app/",
     code: "https://github.com/Diaa-0-Abdelaziz/fernature",
     role: "Landing Page",
   },
   {
-    img: project8,
+    img: hehia,
     title: "Hehia Clinics",
-    description: "Clinic booking information site, responsive across devices.",
-    tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap"],
+    description: "Arabic (RTL) directory of Hehia city clinics by specialty, listing doctors with their phone numbers and addresses.",
+    tags: ["HTML5", "CSS3", "Bootstrap", "Font Awesome", "RTL"],
     live: "https://diaa-0-abdelaziz.github.io/Hehia-City-Clinics/",
     code: "https://github.com/Diaa-0-Abdelaziz/Hehia-City-Clinics",
-    role: "Web App",
+    role: "Website",
   },
 ];

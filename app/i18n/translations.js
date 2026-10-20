@@ -102,23 +102,27 @@ export const translations = {
       "Landing Page": "Landing Page",
     },
     projects: {
+      Muhkam: {
+        description:
+          "Law firm management platform for cases, hearings, contracts, legal news and role-based team permissions.",
+      },
       "Musaned United Company": {
         description:
-          "Corporate multilingual website with RTL support and rich page animations.",
+          "Bilingual (Arabic/English) corporate website for a tech services company: 27 pages covering services, investor relations and financial reports, with interactive stock charts and full RTL support.",
       },
       "Ask Experts": {
         description:
-          "Consulting platform landing experience with validated forms and motion-driven sections.",
+          "Multi-page consulting agency website: services with pricing plans, team, blog and contact pages, with scroll animations and carousels.",
       },
       Zenith: {
         description:
-          "Car rental web app with schema-validated forms and a fully responsive layout.",
+          "Bilingual (Arabic/English) car rental web app with full RTL support, schema-validated forms and a responsive layout.",
       },
       Fernature: {
-        description: "Furniture store landing page with scroll animations.",
+        description: "Furniture store landing page with product sliders, featured collections and scroll animations.",
       },
       "Hehia Clinics": {
-        description: "Clinic booking information site, responsive across devices.",
+        description: "Arabic (RTL) directory of Hehia city clinics by specialty, listing doctors with their phone numbers and addresses.",
       },
     },
     skills: {
@@ -272,23 +276,27 @@ export const translations = {
       "Landing Page": "صفحة هبوط",
     },
     projects: {
+      Muhkam: {
+        description:
+          "منصة لإدارة مكاتب المحاماة: القضايا والجلسات والعقود والأخبار القانونية مع صلاحيات مختلفة لكل عضو في الفريق.",
+      },
       "Musaned United Company": {
         description:
-          "موقع شركة متعدد اللغات يدعم الاتجاه من اليمين لليسار مع حركات غنية في الصفحات.",
+          "موقع شركة خدمات تقنية بالعربي والإنجليزي: ٢٧ صفحة للخدمات وعلاقات المستثمرين والتقارير المالية، مع رسوم بيانية تفاعلية لسعر السهم ودعم كامل لاتجاه اليمين لليسار.",
       },
       "Ask Experts": {
         description:
-          "صفحة هبوط لمنصة استشارات مع نماذج مع تحقق من البيانات وأقسام متحركة.",
+          "موقع متعدد الصفحات لشركة استشارات: الخدمات وخطط الأسعار والفريق والمدونة والتواصل، مع حركات عند التمرير وسلايدرات.",
       },
       Zenith: {
         description:
-          "تطبيق ويب لتأجير السيارات مع نماذج متحقَّق منها بمخطط وتصميم متجاوب بالكامل.",
+          "تطبيق ويب لتأجير السيارات بالعربي والإنجليزي مع دعم كامل لاتجاه اليمين لليسار، ونماذج متحقَّق منها، وتصميم متجاوب.",
       },
       Fernature: {
-        description: "صفحة هبوط لمتجر أثاث مع حركات عند التمرير.",
+        description: "صفحة هبوط لمتجر أثاث مع سلايدر للمنتجات وتشكيلات مميزة وحركات عند التمرير.",
       },
       "Hehia Clinics": {
-        description: "موقع معلومات وحجز لعيادات، متجاوب مع جميع الأجهزة.",
+        description: "دليل عربي لعيادات مدينة ههيا حسب التخصص، بأسماء الأطباء وأرقام تليفوناتهم وعناوينهم، ومتجاوب مع كل الأجهزة.",
       },
     },
     skills: {
