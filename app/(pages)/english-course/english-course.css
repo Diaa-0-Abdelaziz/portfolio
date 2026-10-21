@@ -1,11 +1,388 @@
 .ec-page {
-  padding-top: calc(var(--header-h) + clamp(32px, 6vw, 64px));
+  padding-top: calc(var(--header-h) + 12px);
   padding-bottom: clamp(64px, 10vw, 120px);
 }
 
-.ec-heading {
+/* Poster banner: ad-style composite (always dark, it sits on photos) */
+.ec-poster {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  align-items: center;
+  height: calc(100svh - var(--header-h) - 24px);
+  min-height: 620px;
+  margin: 0 clamp(16px, 2vw, 28px) clamp(48px, 8vw, 96px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: #05060b;
+  color: #f4f3fb;
+  box-shadow: 0 40px 100px -50px rgba(var(--accent-rgb), 0.6);
+}
+
+.ec-poster-sky {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background-size: cover;
+  background-position: 70% center;
+  animation: ec-pan 30s ease-in-out infinite alternate;
+}
+
+/* Darkens the copy side and grades the photo toward the brand colors */
+.ec-poster::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(90deg, rgba(5, 6, 11, 0.95) 0%, rgba(5, 6, 11, 0.78) 38%, rgba(5, 6, 11, 0.15) 70%, rgba(5, 6, 11, 0.35) 100%),
+    linear-gradient(0deg, rgba(5, 6, 11, 0.85) 0%, transparent 40%),
+    radial-gradient(60% 70% at 85% 20%, rgba(124, 92, 255, 0.35), transparent 70%),
+    radial-gradient(50% 60% at 60% 100%, rgba(34, 211, 238, 0.25), transparent 70%);
+}
+
+/* Film grain + scan lines for the printed-poster feel */
+.ec-poster::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
+}
+
+.ec-poster-engine {
+  position: absolute;
+  z-index: -2;
+  top: -22%;
+  right: -10%;
+  width: min(62vw, 820px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  mask-image: radial-gradient(circle, #000 30%, transparent 66%);
+  mix-blend-mode: screen;
+  opacity: 0.5;
+  animation: ec-spin 90s linear infinite;
+}
+
+.ec-poster-path {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ec-poster-path path {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  animation: ec-dash 2s linear infinite;
+}
+
+.ec-poster-copy {
+  position: relative;
+  z-index: 2;
+  padding: clamp(24px, 5vw, 72px);
+}
+
+.ec-poster-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #22d3ee;
+}
+
+.ec-poster-kicker::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+}
+
+.ec-poster-title {
+  margin: 14px 0 18px;
+  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  font-weight: 800;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.ec-poster-title span {
+  display: block;
+  background: linear-gradient(100deg, #a78bfa, #7c5cff 40%, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 8px 30px rgba(124, 92, 255, 0.45));
+}
+
+.ec-poster-question {
+  max-width: 44ch;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.6;
+  color: rgba(244, 243, 251, 0.82);
+  padding-left: 14px;
+  border-left: 2px solid #7c5cff;
+}
+
+.ec-poster-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 28px;
+}
+
+.ec-poster-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(6px);
+  font-size: 0.82rem;
+}
+
+.ec-poster-steps li span {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.7rem;
+  color: #22d3ee;
+}
+
+.ec-poster-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #7c5cff, #22d3ee);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 14px 40px -12px rgba(124, 92, 255, 0.8);
+  transition: transform 0.3s var(--ease);
+}
+
+.ec-poster-cta:hover {
+  transform: translateY(-2px);
+}
+
+.ec-poster-cta svg {
+  animation: ec-bob 1.6s ease-in-out infinite;
+}
+
+/* Tilted photo cards, layered like a composite */
+.ec-poster-cards {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+.ec-card {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 30px 60px -18px rgba(0, 0, 0, 0.75), 0 0 0 6px rgba(255, 255, 255, 0.05);
+  animation: ec-float 7s ease-in-out infinite;
+}
+
+.ec-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ec-card figcaption {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(5, 6, 11, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.ec-card--code {
+  --r: -7deg;
+  width: 56%;
+  aspect-ratio: 4 / 3;
+  top: 9%;
+  left: 2%;
+}
+
+.ec-card--printer {
+  --r: 6deg;
+  width: 40%;
+  aspect-ratio: 3 / 4;
+  top: 22%;
+  right: 6%;
+  animation-delay: -2.5s;
+}
+
+.ec-card--drone {
+  --r: -2deg;
+  width: 60%;
+  aspect-ratio: 16 / 10;
+  bottom: 8%;
+  left: 14%;
+  animation-delay: -5s;
+}
+
+@keyframes ec-float {
+  0%,
+  100% {
+    transform: rotate(var(--r)) translateY(0);
+  }
+  50% {
+    transform: rotate(var(--r)) translateY(-10px);
+  }
+}
+
+@keyframes ec-pan {
+  from {
+    transform: scale(1.08) translateX(0);
+  }
+  to {
+    transform: scale(1.08) translateX(-3%);
+  }
+}
+
+@keyframes ec-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ec-dash {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@keyframes ec-bob {
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+/* Gallery: drones and aircraft, uncropped */
+.ec-fleet {
+  margin-top: clamp(64px, 10vw, 120px);
+}
+
+.ec-fleet-heading {
   text-align: center;
   margin-bottom: 32px;
+}
+
+.ec-fleet-group + .ec-fleet-group {
+  margin-top: 48px;
+}
+
+.ec-fleet-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.ec-masonry {
+  columns: 3 300px;
+  column-gap: 16px;
+}
+
+.ec-shot {
+  break-inside: avoid;
+  margin: 0 0 16px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition: transform 0.4s var(--ease), border-color 0.3s;
+}
+
+.ec-shot:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--accent-rgb), 0.5);
+}
+
+.ec-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ec-shot figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px 14px;
+}
+
+.ec-shot-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.ec-shot-span {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.78rem;
+  color: var(--accent-2);
+  white-space: nowrap;
+}
+
+.ec-shot-type {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.ec-shot-bar {
+  display: block;
+  height: 4px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--hover-bg);
+  overflow: hidden;
+}
+
+.ec-shot-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-gradient);
+}
+
+.ec-fleet-credit {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-faint);
 }
 
 .ec-chat {
@@ -16,6 +393,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 30px 80px -40px rgba(var(--accent-rgb), 0.45);
+  scroll-margin-top: calc(var(--header-h) + 24px);
 }
 
 /* Header */
@@ -198,6 +576,61 @@
   .ec-row {
     animation: none;
     opacity: 1;
+  }
+
+  .ec-poster-sky,
+  .ec-poster-engine,
+  .ec-poster-path path,
+  .ec-poster-cta svg,
+  .ec-card {
+    animation: none;
+  }
+
+  .ec-card {
+    transform: rotate(var(--r));
+  }
+}
+
+@media (max-width: 900px) {
+  .ec-poster {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 0;
+  }
+
+  .ec-poster::before {
+    background: linear-gradient(180deg, rgba(5, 6, 11, 0.9) 0%, rgba(5, 6, 11, 0.7) 50%, rgba(5, 6, 11, 0.85) 100%),
+      radial-gradient(60% 50% at 85% 15%, rgba(124, 92, 255, 0.35), transparent 70%);
+  }
+
+  .ec-poster-engine {
+    width: 110vw;
+    top: -12%;
+    right: -45%;
+    opacity: 0.4;
+  }
+
+  .ec-poster-cards {
+    height: clamp(300px, 80vw, 460px);
+    margin: 0 16px 24px;
+  }
+
+  .ec-card--code {
+    width: 60%;
+    top: 2%;
+    left: 0;
+  }
+
+  .ec-card--printer {
+    width: 40%;
+    top: 8%;
+    right: 0;
+  }
+
+  .ec-card--drone {
+    width: 56%;
+    bottom: 2%;
+    left: 4%;
   }
 }
 
